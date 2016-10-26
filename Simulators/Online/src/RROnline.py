@@ -12,7 +12,7 @@ class Simulator(threading.Thread):
     ##INITALISE VARIABLES
     def __init__(self, group=None, target=None, name=None,
                  args=(), kwargs=None, verbose=None):
-        super(RROnline,self).__init__(group=group, target=target, name=name, verbose=verbose)
+        super(Simulator,self).__init__(group=group, target=target, name=name, verbose=verbose)
         self.args = args;
         self.kwargs = kwargs;
         self.passingsBuffer  = "";
@@ -70,7 +70,6 @@ class Simulator(threading.Thread):
                 + "&time=" + self.racetime().strftime("%H:%M:%S.%f")[:12] \
                 + "&count=" + str(self.passingCount) \
                 + "&loc=" + str(self.location['latitude'] + (random.random()-0.5)/1000.0 ) + ";" + str(self.location['longitude'] + (random.random()-0.5)/1000.0);
-        print url
         r = grequests.get(url);
         r.send();
         self.nextStatus += timedelta(minutes=1);
@@ -86,7 +85,6 @@ class Simulator(threading.Thread):
                 + "&time=" + '{:.3f}'.format((self.nextPassing - self.simulationStartDate).total_seconds()) \
                 + "&bib=" + str(self.randomBib()) \
                 + "&num=" + str(num);
-        print url;
         r = grequests.get(url);
         r.send();
         self.uploadLastPassingTime = self.now();

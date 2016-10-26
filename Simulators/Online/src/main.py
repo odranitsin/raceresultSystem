@@ -25,30 +25,30 @@ def Device():
     p.density   = density;
     return p;
     
-try:
-    deviceList = [];
-    for i in xrange(num):
-        d = Device();
-        d.getSimulationSlot();
-        d.start();				##begin thread. Required for multiple devices		
-        deviceList.append(d);
+##try:
+deviceList = [];
+for i in xrange(num):
+    d = Device();
+    d.getSimulationSlot();
+    d.start();				##begin thread. Required for multiple devices		
+    deviceList.append(d);
 
-    print ""
-    print "#############################################"
-    print ""
-    some_var = raw_input("Press ENTER to start");
-    print ""
-    print "#############################################"
+print ""
+print "#############################################"
+print ""
+some_var = raw_input("Press ENTER to start");
+print ""
+print "#############################################"
 
-    for device in deviceList: device.beginSimulation();
+for device in deviceList: device.beginSimulation();
 
-    while True:
-        #do nothing
-        _i = 0;
-except:
-    #suppress error
-    _i = 1;
-finally:
-    for device in deviceList: device.stop();
-    print "#############################################"
-    print "Closing..."
+while True:
+    #do nothing
+    _i = 0;
+##except:
+##    #suppress error
+##    _i = 1;
+##finally:
+##    for device in deviceList: device.stop();
+##    print "#############################################"
+##    print "Closing..."

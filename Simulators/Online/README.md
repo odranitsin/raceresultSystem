@@ -3,7 +3,7 @@ This folder contains a simulator for generating passings for online device. Thes
 Contents
 --------------
 RROnlineSimulator.exe - executable capable of running up to 10 simulated race|result Systems uploading passings online
-/nsrc                  - folder containing the Python source code of the executable RROnlineSimulator.exe
+\nsrc                  - folder containing the Python source code of the executable RROnlineSimulator.exe
 
 Notes
 --------------

@@ -9,7 +9,7 @@ print ""
 
 acc         = int(raw_input("Account Number:\t\t\t"));
 pw          = getpass.getpass();
-num         = int(raw_input("Number of Devices (max 10):\t"));
+num         = max(0, min(int(raw_input("Number of Devices (max 10):\t")), 10));
 density     = int(raw_input("Passings per minute:\t\t"));
 bibRange    = int(raw_input("Number of participants:\t\t"));
 

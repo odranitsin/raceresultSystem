@@ -44,7 +44,6 @@ class Simulator(threading.Thread):
     def getSimulationSlot(self):
         resp = str(requests.get("https://data.raceresult.com/interface/passings/simulations/getSimulationSlot.php?user=" + str(self.user) + "&pw=" + str(self.pw)).text);
         if ";" in resp:
-            print resp;
             self.fileNum         = int(resp.split(";")[1]);
             self.device          = resp.split(";")[0];
             self.key             = resp.split(";")[2];
